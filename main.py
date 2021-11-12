@@ -2,7 +2,7 @@ import urllib3
 
 def getList(min, max):
     http = urllib3.PoolManager()
-    arguments = "https://www.random.org/sequences/?min="+str(min)+"&max="+str(max)+"&col=1&format=plain&rnd=new"
+    arguments = f"https://www.random.org/sequences/?min="+str(min)+"&max="+str(max)+"&col=1&format=plain&rnd=new"
     r = http.request('GET', arguments)
     out = r.data.decode()
     out = out.split("\n")
@@ -18,7 +18,7 @@ def convert_list(lista):
     for x in lista:
         for i in out:
             i = i.split(".")
-            if i[0] != "":
+            if i[0] != "" and i[0] != "*":
                 if int(i[0]) == x:
                     print(i[1], end= "")
 
