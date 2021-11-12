@@ -18,8 +18,9 @@ def convert_list(lista):
     for x in lista:
         for i in out:
             i = i.split(".")
-            if int(i[0]) == x:
-                print(i[1], end= "")
+            if i[0] != "":
+                if int(i[0]) == x:
+                    print(i[1], end= "")
 
 lista = getList(1, 23)
 convert_list(lista)
